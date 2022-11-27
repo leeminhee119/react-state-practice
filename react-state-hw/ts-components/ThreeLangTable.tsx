@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
+// import { dataInterface } from "../interface/dataInterface";
 
-const ThreeLangTable = () => {
+interface ThreeLangTableInterface {
+
+}
+
+const ThreeLangTable = (props: any) => {
     return (
         <table>
-            <thead></thead>
-            <tbody></tbody>
+            <thead>
+                <tr>
+                    <th>구분</th>
+                    <th>한국어</th>
+                    <th>영어</th>
+                    <th>일본어</th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    props.data.map((rowData) => {
+
+                    })
+                }
+            </tbody>
         </table>
     )
 }
