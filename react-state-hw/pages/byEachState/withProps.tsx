@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import ThreeLangTable from '../../ts-components/ThreeLangTable';
 import { dataInterface } from "../../interface/dataInterface";
 
 function withProps(props: dataInterface) {
