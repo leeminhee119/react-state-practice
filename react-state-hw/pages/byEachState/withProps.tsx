@@ -95,7 +95,7 @@ function withProps(props: dataInterface) {
                 </tr>
                 <tr>
                     <td className="narrow">썸네일</td>
-                    <td>{koThumbnailUrl}</td>
+                    <td><input type='file'/></td>
                     <td>{enThumbnailUrl}</td>
                     <td>{jaThumbnailUrl}</td>
                 </tr>

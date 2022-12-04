@@ -35,23 +35,16 @@ function withRedux() {
             setSingleData(tempResult);
         })
     }, [])
-    console.log("singleData", singleData)
-    if (singleData != null) {
+    if (singleData.common != null && singleData.ko != null && singleData.en != null && singleData.ja != null) {
         storeTopObject.dispatch({
             type: 'saveData',
             payload: singleData
         })
     }
-    console.log(storeTopObject.getState())
-    if (storeTopObject.getState().singleData.ko == null || storeTopObject.getState().singleData.ja == null || storeTopObject.getState().singleData.en == null || storeTopObject.getState().date == null || storeTopObject.getState().url == null) {
-        console.log('hi')
+    if (typeof storeTopObject.getState() == 'undefined') {
         return null;
     }
-    if (typeof storeTopObject.getState() == "undefined") {
-        return null;
-    }
-    const reduxData = storeTopObject.getState();
-    console.log("REDUXDATA", reduxData)
+    const reduxData = storeTopObject.getState().singleData;
     return (
         <table>
             <thead>
@@ -65,15 +58,15 @@ function withRedux() {
             <tbody>
                 <tr>
                     <td className="narrow">가수이름</td>
-                    <td>{reduxData.singleData.ko.artistName}</td>
-                    <td>{reduxData.singleData.en.artistName}</td>
-                    <td>{reduxData.singleData.ja.artistName}</td>
+                    <td>{reduxData.ko.artistName}</td>
+                    <td>{reduxData.en.artistName}</td>
+                    <td>{reduxData.ja.artistName}</td>
                 </tr>
                 <tr>
                     <td className="narrow">공연</td>
-                    <td>{reduxData.singleData.ko.productName}</td>
-                    <td>{reduxData.singleData.en.productName}</td>
-                    <td>{reduxData.singleData.ja.productName}</td>
+                    <td>{reduxData.ko.productName}</td>
+                    <td>{reduxData.en.productName}</td>
+                    <td>{reduxData.ja.productName}</td>
                 </tr>
                 <tr>
                     <td className="narrow">예매링크</td>
@@ -89,15 +82,15 @@ function withRedux() {
                 </tr>
                 <tr>
                     <td className="narrow">장소</td>
-                    <td>{reduxData.singleData.ko.location}</td>
-                    <td>{reduxData.singleData.en.location}</td>
-                    <td>{reduxData.singleData.ja.location}</td>
+                    <td>{reduxData.ko.location}</td>
+                    <td>{reduxData.en.location}</td>
+                    <td>{reduxData.ja.location}</td>
                 </tr>
                 <tr>
                     <td className="narrow">썸네일</td>
-                    <td>{reduxData.singleData.ko.thumbnailUrl}</td>
-                    <td>{reduxData.singleData.en.thumbnailUrl}</td>
-                    <td>{reduxData.singleData.ja.thumbnailUrl}</td>
+                    <td><input type='file'/></td>
+                    <td>{reduxData.en.thumbnailUrl}</td>
+                    <td>{reduxData.ja.thumbnailUrl}</td>
                 </tr>
             </tbody>
         </table>

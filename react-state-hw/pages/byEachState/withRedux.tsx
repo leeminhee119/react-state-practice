@@ -121,7 +121,7 @@ function withRedux() {
                 </tr>
                 <tr>
                     <td className="narrow">썸네일</td>
-                    <td>{store.getState().koThumbnailUrl}</td>
+                    <td><input type='file'/></td>
                     <td>{store.getState().enThumbnailUrl}</td>
                     <td>{store.getState().jaThumbnailUrl}</td>
                 </tr>

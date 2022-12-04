@@ -81,7 +81,7 @@ function withProps() {
                 </tr>
                 <tr>
                     <td className="narrow">썸네일</td>
-                    <td>{singleData.ko.thumbnailUrl}</td>
+                    <td><input type='file'/></td>
                     <td>{singleData.en.thumbnailUrl}</td>
                     <td>{singleData.ja.thumbnailUrl}</td>
                 </tr>
