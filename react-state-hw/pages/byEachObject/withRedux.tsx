@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { storeEachObject } from "../../redux/storeEachObject";
+import ThreeLangTable from "../../ts-components/ThreeLangTable";
 
 function withRedux() {
     const [commonData, setCommonData] = useState<any>(null);
@@ -73,54 +74,7 @@ function withRedux() {
     }
     console.log(storeEachObject.getState())
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th className="narrow">구분</th>
-                    <th>한국어</th>
-                    <th>영어</th>
-                    <th>일본어</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td className="narrow">가수이름</td>
-                    <td>{storeEachObject.getState().koData.artistName}</td>
-                    <td>{storeEachObject.getState().enData.artistName}</td>
-                    <td>{storeEachObject.getState().jaData.artistName}</td>
-                </tr>
-                <tr>
-                    <td className="narrow">공연</td>
-                    <td>{storeEachObject.getState().koData.productName}</td>
-                    <td>{storeEachObject.getState().enData.productName}</td>
-                    <td>{storeEachObject.getState().jaData.productName}</td>
-                </tr>
-                <tr>
-                    <td className="narrow">예매링크</td>
-                    <td>{storeEachObject.getState().url}</td>
-                    <td>{storeEachObject.getState().url}</td>
-                    <td>{storeEachObject.getState().url}</td>
-                </tr>
-                <tr>
-                    <td className="narrow">날짜</td>
-                    <td>{storeEachObject.getState().date.year}-{storeEachObject.getState().date.month}-{storeEachObject.getState().date.date}</td>
-                    <td>{storeEachObject.getState().date.year}-{storeEachObject.getState().date.month}-{storeEachObject.getState().date.date}</td>
-                    <td>{storeEachObject.getState().date.year}-{storeEachObject.getState().date.month}-{storeEachObject.getState().date.date}</td>
-                </tr>
-                <tr>
-                    <td className="narrow">장소</td>
-                    <td>{storeEachObject.getState().koData.location}</td>
-                    <td>{storeEachObject.getState().enData.location}</td>
-                    <td>{storeEachObject.getState().jaData.location}</td>
-                </tr>
-                <tr>
-                    <td className="narrow">썸네일</td>
-                    <td><input type='file'/></td>
-                    <td>{storeEachObject.getState().enData.thumbnailUrl}</td>
-                    <td>{storeEachObject.getState().jaData.thumbnailUrl}</td>
-                </tr>
-            </tbody>
-        </table>
+        <ThreeLangTable koData={koData} enData={enData} jaData={jaData} commonData={commonData} />
     )
 }
 
