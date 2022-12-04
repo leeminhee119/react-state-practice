@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
-import { dataInterface } from "../../interface/dataInterface";
+import ThreeLangTableEachState from "../../ts-components/ThreeLangTableEachState";
 
-function withProps(props: dataInterface) {
+function withProps() {
     const [url, setUrl] = useState(null);
     const [date, setDate] = useState({year:'xxxx', month:'xx', date:'xx'});
 
@@ -48,59 +48,26 @@ function withProps(props: dataInterface) {
             setJaThumbnailUrl(data.ja_thumbnail_url);
         })
     }, [])
-    console.log("date", date)
     if (date == null) {
         return null
     }
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th className="narrow">구분</th>
-                    <th>한국어</th>
-                    <th>영어</th>
-                    <th>일본어</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td className="narrow">가수이름</td>
-                    <td>{koArtistName}</td>
-                    <td>{enArtistName}</td>
-                    <td>{jaArtistName}</td>
-                </tr>
-                <tr>
-                    <td className="narrow">공연</td>
-                    <td>{koProductName}</td>
-                    <td>{enProductName}</td>
-                    <td>{jaProductName}</td>
-                </tr>
-                <tr>
-                    <td className="narrow">예매링크</td>
-                    <td>{url}</td>
-                    <td>{url}</td>
-                    <td>{url}</td>
-                </tr>
-                <tr>
-                    <td className="narrow">날짜</td>
-                    <td>{date.year}-{date.month}-{date.date}</td>
-                    <td>{date.year}-{date.month}-{date.date}</td>
-                    <td>{date.year}-{date.month}-{date.date}</td>
-                </tr>
-                <tr>
-                    <td className="narrow">장소</td>
-                    <td>{koLocation}</td>
-                    <td>{enLocation}</td>
-                    <td>{jaLocation}</td>
-                </tr>
-                <tr>
-                    <td className="narrow">썸네일</td>
-                    <td><input type='file'/></td>
-                    <td>{enThumbnailUrl}</td>
-                    <td>{jaThumbnailUrl}</td>
-                </tr>
-            </tbody>
-        </table>
+        <ThreeLangTableEachState
+        koArtistName={koArtistName}
+        enArtistName={enArtistName}
+        jaArtistName={jaArtistName}
+        koProductName={koProductName}
+        enProductName={enProductName}
+        jaProductName={jaProductName}
+        koLocation={koLocation}
+        enLocation={enLocation}
+        jaLocation={jaLocation}
+        koThumbnailUrl={koThumbnailUrl}
+        enThukoThumbnailUrl={enThumbnailUrl}
+        jaThumbnailUrl={jaThumbnailUrl}
+        date={date}
+        url={url}
+        />
     )
 }
 

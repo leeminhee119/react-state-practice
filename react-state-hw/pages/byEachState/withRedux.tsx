@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { store } from "../../redux/store";
+import ThreeLangTableEachState from "../../ts-components/ThreeLangTableEachState";
 
 function withRedux() {
     const [myData, setMyData] = useState<any>(null);
@@ -79,54 +80,22 @@ function withRedux() {
         return null;
     }
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th className="narrow">구분</th>
-                    <th>한국어</th>
-                    <th>영어</th>
-                    <th>일본어</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td className="narrow">가수이름</td>
-                    <td>{store.getState().koArtistName}</td>
-                    <td>{store.getState().enArtistName}</td>
-                    <td>{store.getState().jaArtistName}</td>
-                </tr>
-                <tr>
-                    <td className="narrow">공연</td>
-                    <td>{store.getState().koProductName}</td>
-                    <td>{store.getState().enProductName}</td>
-                    <td>{store.getState().jaProductName}</td>
-                </tr>
-                <tr>
-                    <td className="narrow">예매링크</td>
-                    <td>{store.getState().url}</td>
-                    <td>{store.getState().url}</td>
-                    <td>{store.getState().url}</td>
-                </tr>
-                <tr>
-                    <td className="narrow">날짜</td>
-                    <td>{store.getState().date.year}-{store.getState().date.month}-{store.getState().date.date}</td>
-                    <td>{store.getState().date.year}-{store.getState().date.month}-{store.getState().date.date}</td>
-                    <td>{store.getState().date.year}-{store.getState().date.month}-{store.getState().date.date}</td>
-                </tr>
-                <tr>
-                    <td className="narrow">장소</td>
-                    <td>{store.getState().koLocation}</td>
-                    <td>{store.getState().enLocation}</td>
-                    <td>{store.getState().jaLocation}</td>
-                </tr>
-                <tr>
-                    <td className="narrow">썸네일</td>
-                    <td><input type='file'/></td>
-                    <td>{store.getState().enThumbnailUrl}</td>
-                    <td>{store.getState().jaThumbnailUrl}</td>
-                </tr>
-            </tbody>
-        </table>
+        <ThreeLangTableEachState
+        koArtistName={store.getState().koArtistName}
+        enArtistName={store.getState().enArtistName}
+        jaArtistName={store.getState().jaArtistName}
+        koProductName={store.getState().koProductName}
+        enProductName={store.getState().enProductName}
+        jaProductName={store.getState().jaProductName}
+        koLocation={store.getState().koLocation}
+        enLocation={store.getState().enLocation}
+        jaLocation={store.getState().jaLocation}
+        koThumbnailUrl={store.getState().koThumbnailUrl}
+        enThukoThumbnailUrl={store.getState().enThumbnailUrl}
+        jaThumbnailUrl={store.getState().jaThumbnailUrl}
+        date={store.getState().date}
+        url={store.getState().url}
+        />
     )
 }
 export default withRedux;

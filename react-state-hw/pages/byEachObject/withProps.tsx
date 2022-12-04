@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { dataInterface } from "../../interface/dataInterface";
+import ThreeLangTable from "../../ts-components/ThreeLangTable";
 
 function withProps() {
     const [commonData, setCommonData] = useState<any>(null);
@@ -44,54 +44,7 @@ function withProps() {
         return null
     }
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th className="narrow">구분</th>
-                    <th>한국어</th>
-                    <th>영어</th>
-                    <th>일본어</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td className="narrow">가수이름</td>
-                    <td>{koData.artistName}</td>
-                    <td>{enData.artistName}</td>
-                    <td>{jaData.artistName}</td>
-                </tr>
-                <tr>
-                    <td className="narrow">공연</td>
-                    <td>{koData.productName}</td>
-                    <td>{enData.productName}</td>
-                    <td>{jaData.productName}</td>
-                </tr>
-                <tr>
-                    <td className="narrow">예매링크</td>
-                    <td>{commonData.url}</td>
-                    <td>{commonData.url}</td>
-                    <td>{commonData.url}</td>
-                </tr>
-                <tr>
-                    <td className="narrow">날짜</td>
-                    <td>{commonData.date.year}-{commonData.date.month}-{commonData.date.date}</td>
-                    <td>{commonData.date.year}-{commonData.date.month}-{commonData.date.date}</td>
-                    <td>{commonData.date.year}-{commonData.date.month}-{commonData.date.date}</td>
-                </tr>
-                <tr>
-                    <td className="narrow">장소</td>
-                    <td>{koData.location}</td>
-                    <td>{enData.location}</td>
-                    <td>{jaData.location}</td>
-                </tr>
-                <tr>
-                    <td className="narrow">썸네일</td>
-                    <td><input type='file'/></td>
-                    <td>{enData.thumbnailUrl}</td>
-                    <td>{jaData.thumbnailUrl}</td>
-                </tr>
-            </tbody>
-        </table>
+        <ThreeLangTable koData={koData} enData={enData} jaData={jaData} commonData={commonData} />
     )
 }
 
